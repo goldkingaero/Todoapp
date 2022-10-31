@@ -1,0 +1,84 @@
+<div class="custom-container">
+  <div class="row custom-row">
+    <div class="col-md-6">
+      <div class="col-md-12 auth-intro">
+        <h1>Todo App<br>
+
+      Makes our life simple</h1>
+      </div>
+    </div>
+    <div class="col-md-6 custom-form">
+      <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+        <div class="mb-3 col-md-12">
+          <label for="exampleInputEmail1"  class="form-label">Email address</label>
+          <input type="email" class="form-control" formControlName="email" id="exampleInputEmail1" [ngClass]="{ 'is-invalid': loginformsubmitted && lg.email.errors }">
+          <div *ngIf="loginformsubmitted && lg.email.errors" class="invalid-feedback">
+            <div *ngIf="lg.email.errors.required">Email is required</div>
+            <div *ngIf="lg.email.errors.email">Email must be a valid email address</div>
+        </div>
+        </div>
+
+        <div class="mb-3 col-md-12">
+          <label for="exampleInputPassword1"  class="form-label">Password</label>
+          <input type="password" class="form-control"  formControlName="password" id="exampleInputPassword1" [ngClass]="{ 'is-invalid': loginformsubmitted && lg.password.errors }" >
+          <div *ngIf="loginformsubmitted && lg.password.errors" class="invalid-feedback">
+            <div *ngIf="lg.password.errors.required">Password is required</div>
+            <div *ngIf="lg.password.errors.minlength">Password must be at least 6 characters</div>
+      </div>
+        </div>
+        <div class="mb-3 col-md-12">
+        <button type="submit" class="btn btn-primary col-md-12">Log in</button>
+      </div>
+
+      </form>
+      <br>
+      <hr>
+      <div class="mb-3 col-md-6 create-btn">
+        <button type="submit" class="btn btn-success col-md-12" (click)="openModal(template)">Create New Account</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Sign Up</h4>
+    <button type="button" class="close btn-close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="card m-3">
+
+      <div class="card-body">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+             <div class="form-row">
+              <div class="form-group col">
+                <label>Email</label>
+                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"  />
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.email.errors.required">Email is required</div>
+                  <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+              </div>
+              </div>
+                  <div class="form-group col">
+                      <label>Password</label>
+                      <input type="password" formControlName="password" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                        <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="text-center">
+                  <button class="btn btn-success mr-1">Sign Up</button>
+
+              </div>
+          </form>
+      </div>
+  </div>
+  </div>
+</ng-template>

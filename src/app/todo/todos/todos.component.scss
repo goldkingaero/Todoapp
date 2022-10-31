@@ -1,0 +1,32 @@
+.todos {
+  background-color: #fffff8;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+.todos-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em 1em;
+  border-bottom: 1px solid #dbdbdb;
+  background: #c5e1e5;
+  width: 83%;
+  border-radius: 5px;
+  font-style: italic;
+  font-weight: 500;
+  margin-top: 1em;
+}
+
+.todo-img{
+  height: 1em;
+}
+
+.todo-trash-container{
+  display: inline-block;
+  width: 5%;
+  text-align: center;
+  background: #2e501747;
+  height: 26px;
+  border-radius: 3px;
+  cursor: pointer;
+}

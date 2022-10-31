@@ -1,0 +1,11 @@
+<ul  class="todos">
+  <li class="todos-item" *ngFor="let todo of todos">
+{{todo.todo}}
+
+
+<span class="todo-trash-container" (click)="handleDeleteTodo(todo)">
+  <img class="todo-img"src="../../../assets/svg/trash-can-regular.svg">
+</span>
+  </li>
+</ul>
+<div *ngIf="todos && todos.length === 0">You don't have any todos yet. Get started Adding...</div>
