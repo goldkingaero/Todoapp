@@ -13,6 +13,10 @@ export class TodoService {
     const todoObj = new Todo(todo);
     return this.http.post<Todo>(`http://localhost:3000/todos`, todoObj);
   }
+  updateTodo(obj: any) {
+    const todoObj = new Todo(obj.todo);
+    return this.http.put<Todo>(`http://localhost:3000/todos/${obj.id}`, todoObj);
+  }
 
   getTodos(): Observable<Todo[]> {
     return this.http.get<Todo[]>(`http://localhost:3000/todos`);

@@ -30,6 +30,7 @@ export class HomepageComponent implements OnInit {
      let value=this.todoForm.get('todo')?.value;
      this.todoForm.reset();
     this.todoService.createTodo(value).subscribe((res) => {
+      console.log(res);
       this.fetchTodos();
      });
 
@@ -43,7 +44,6 @@ export class HomepageComponent implements OnInit {
     });
   }
   callTodoFunc(){
-    console.log('dsdsd');
-   this.fetchTodos();
+    this.fetchTodos();
   }
 }

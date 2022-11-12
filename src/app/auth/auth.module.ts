@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ModalModule } from 'ngx-bootstrap/modal';
+
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
 import { SharedModule } from '../shared.module';
@@ -16,7 +16,7 @@ import { SharedModule } from '../shared.module';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    ModalModule.forRoot(),
+
     SharedModule
 
   ]

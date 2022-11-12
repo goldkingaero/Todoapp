@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="col-md-6 custom-form">
-      <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+      <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" data-test-id="loginForm">
         <div class="mb-3 col-md-12">
           <label for="exampleInputEmail1"  class="form-label">Email address</label>
           <input type="email" class="form-control" formControlName="email" id="exampleInputEmail1" [ngClass]="{ 'is-invalid': loginformsubmitted && lg.email.errors }">
@@ -27,14 +27,14 @@
       </div>
         </div>
         <div class="mb-3 col-md-12">
-        <button type="submit" class="btn btn-primary col-md-12">Log in</button>
+        <button type="submit" class="btn btn-primary col-md-12"  data-test-id="loginBtn">Log in</button>
       </div>
 
       </form>
       <br>
       <hr>
       <div class="mb-3 col-md-6 create-btn">
-        <button type="submit" class="btn btn-success col-md-12" (click)="openModal(template)">Create New Account</button>
+        <button type="submit" class="btn btn-success col-md-12"  id="open-modalBtn" (click)="openModal(template)">Create New Account</button>
       </div>
     </div>
   </div>

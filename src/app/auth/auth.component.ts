@@ -2,7 +2,7 @@ import { Component, OnInit,TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from './auth.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { SignupSuccessResponse } from './interfaces/signup-success-response';
 @Component({
   selector: 'app-auth',
@@ -15,7 +15,7 @@ export class AuthComponent implements OnInit {
   submitted = false;
   loginformsubmitted: boolean=false;
   constructor(private modalService: BsModalService,private formBuilder: FormBuilder,private authService:AuthService,
-    private router:Router,private route: ActivatedRoute) {
+    private router:Router) {
     this.registerForm= this.formBuilder.group({
       email:['',[Validators.required,Validators.email]],
       password:['',[Validators.required,Validators.minLength(6)]]
@@ -50,7 +50,9 @@ export class AuthComponent implements OnInit {
   }
 
   get f() {
-     return this.registerForm.controls;
+
+      console.log(this.registerForm.controls);
+      return this.registerForm.controls;
     }
 
     onSubmit() {
